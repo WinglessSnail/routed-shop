@@ -1,10 +1,11 @@
 import "../../styles/login.css";
 import Header from "./header/header.jsx";
+import { Link, Outlet } from "react-router-dom";
 
 const Login = (e) => {
   return (
     <>
-      <Header/>
+      <Header />
       <div className="loginform">
         <label id="label" for="user">
           user name
@@ -17,7 +18,12 @@ const Login = (e) => {
         </label>
         <br />
         <input id="password" type="password" placeholder="password"></input>
+        <Link className="loglink" to="/products">
+          {" "}
+          <button className="login">Login</button>
+        </Link>
       </div>
+      <Outlet />
     </>
   );
 };

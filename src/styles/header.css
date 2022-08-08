@@ -22,6 +22,27 @@ ul li {
     font-size: 20px ;
     padding-top: 7px;
 }
+.link {
+    text-decoration: none;
+    color: var(--font);
+    transition: all 0.2s;
+}
+.link:hover{
+    color: var(--thistle);
+}
+.button{
+    height: 40px;
+    width: 60%;
+    font-size: 20px;
+    background-color: var(--thistle);
+    border: var(--thistle);
+    border-radius: 5px;
+    color: var(--font);
+    transition: all 0.3s ease-in;
+    grid-column: 7/span 1;
+    justify-self:end;
+    scale: 0.75;
+}
 .badge{
     border-radius: 50px;
     padding: 5px;
@@ -32,19 +53,7 @@ ul li {
     margin-right: -20rem;
     grid-column: 6/span 1;
     justify-self: center;
-}
-.button{
-    height: 40px;
-    width: 60%;
-    font-size: 20px;
-    background-color: var(--lilac);
-    border: var(--lilac);
-    border-radius: 5px;
-    color: var(--font);
-    transition: all 0.3s;
-    grid-column: 7/span 1;
-    justify-self:end;
-    scale: 0.75;
+    scale: 0.70;
 }
 .button:hover{
     background: #fff;
