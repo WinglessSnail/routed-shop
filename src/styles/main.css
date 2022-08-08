@@ -1,0 +1,22 @@
+@font-face {
+    font-family:'Ubuntu-Regular';
+    src: url("../../public/assets/fonts/Ubuntu-Regular.ttf"); 
+}
+:root{
+    --lilac:#ce94bc;
+    --thistle:#dbbfdb;
+    --lavendergrey:#b6b5d8;
+    --mauve:#b59dfa;
+    --deluge:#877bae;
+    --font:rgb(50, 50, 50);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Ubuntu-Regular';
+    background-color: var(--lavendergrey);
+
+}
