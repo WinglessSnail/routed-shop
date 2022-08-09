@@ -1,23 +1,21 @@
 import "../styles/header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <header className="header">
         <span className="logo">Routed shop</span>
         <ul>
-          <Link className="link" to="/products">
-            <li>Products page</li>
-          </Link>
+          <li className="link" onClick={()=>navigate("/products")}>Products page</li>
         </ul>
 
-        <span className="badge">user's name</span>
+        <span className="badge">{props.name}</span>
 
-        <button className="button">
-          <Link className="link" to="/Login">
-            logout
-          </Link>
+        <button className="button" onClick={() => navigate(-1)}>
+          logout
         </button>
 
         <input
