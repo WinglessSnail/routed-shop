@@ -19,18 +19,37 @@ const Login = (props) => {
           );
           if (user) {
             props.setUserName(name);
-            navigate("/products")
+            navigate("/products");
           } else {
             alert("user does not exist");
-          }
-          {
-            // user ? navigate("/products") && props.setUserName(name) : alert(`user does not exist`);
           }
         },
         (error) => {
           alert("data not found");
         }
       );
+  };
+  const handleKeydownLogin = (e) => {
+    if(e.key === "Enter"){
+    fetch("http://localhost:3000/users.json")
+    .then((res) => res.json())
+    .then(
+      (users) => {
+        const user = users.find(
+          (u) => u.name === name && u.password === password
+        );
+        if (user) {
+          props.setUserName(name);
+          navigate("/products");
+        } else {
+          alert("user does not exist");
+        }
+      },
+      (error) => {
+        alert("data not found");
+      }
+    );
+    }
   };
 
   const handleNameChange = (e) => {
@@ -65,8 +84,9 @@ const Login = (props) => {
           placeholder="password"
           value={password}
           onChange={handlePassChange}
+          onKeyDown={handleKeydownLogin}
         ></input>
-        <button className="login" onClick={handleLoginClick}>
+        <button className="login" onClick={handleLoginClick} >
           Login
         </button>
       </div>

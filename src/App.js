@@ -6,6 +6,7 @@ import Login from "./components/login";
 import Products from "./components/products";
 import ItemCard from "./components/products/itemCard";
 import "./styles/main.css";
+import { Not } from "./components/not";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -19,6 +20,7 @@ function App() {
           <Route path="products" element={<Products userName={userName} />}>
             <Route path=":productId" element={<ItemCard/>} />
           </Route>
+          <Route path="notfound" element={<Not/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
