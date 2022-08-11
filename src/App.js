@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Home } from "./components/login/Home";
-import Header from "./components/header.jsx";
-import Login from "./components/login/login";
-import Products from "./components/products";
-import "./styles/main.css";
-import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom";
+import { Home } from "./components/Home";
 import { Nothing } from "./components/nothin";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./components/login";
+import Products from "./components/products";
+import ItemCard from "./components/products/itemCard";
+import "./styles/main.css";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -17,7 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="login" element={<Login setUserName={setUserName} />} />
           <Route path="products" element={<Products userName={userName} />}>
-            <Route path=":productId" element={<h1>product is here</h1>} />
+            <Route path=":productId" element={<ItemCard/>} />
           </Route>
         </Route>
       </Routes>

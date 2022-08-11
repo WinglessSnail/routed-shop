@@ -18,5 +18,6 @@
 body{
     font-family:'Ubuntu-Regular';
     background-color: var(--lavendergrey);
+    background-image: linear-gradient(-75deg, var(--lavendergrey), var(--mauve));
 
 }

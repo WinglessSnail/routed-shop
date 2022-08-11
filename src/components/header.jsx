@@ -1,5 +1,5 @@
 import "../styles/header.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Header = (props) => {
 
         <span className="badge">{props.name}</span>
 
-        <button className="button" onClick={() => navigate(-1)}>
+        <button className="button" onClick={() => navigate("/login")}>
           logout
         </button>
 

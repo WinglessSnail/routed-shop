@@ -1,0 +1,90 @@
+*{
+    color: var(--font);
+}
+.card{
+    /* height: 80vh; */
+    width: 75%;
+    margin: 50px auto;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+.card-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border-bottom: 4px solid var(--deluge);
+}
+.backBtn{
+    width: 30%;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: var(--deluge);
+    border: none;
+    border-radius: 2px;
+    text-align: start;
+    padding-left: 3px;
+    background-color:var(--lavergrey);
+    transition: all 0.3s ease-in;
+    opacity: 0.5;
+}
+.backBtn:hover{
+    cursor: pointer;
+    background-color: var(--thistle);
+}
+.promo{
+    padding-top: 0.75rem ;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.card-body{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.card-body img{
+    height: 42vh;
+    padding:2rem 1rem;
+    object-fit: cover;
+
+}
+.left{
+    padding: 1rem;
+}
+.right{
+    padding: 1rem;
+}
+.card-text{
+    font-size: 1.2rem;
+}
+.discription{
+    padding:7rem 1.5rem;
+    margin: 4rem -3rem 4rem 0;
+    background-color: var(--thistle);
+}
+.footer{
+    height: 10vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 1rem;
+    border-top: 4px solid var(--deluge);
+    background-color: var(--thistle);
+}
+.orderBtn{
+    width: 30%;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: var(--deluge);
+    border: none;
+    border-radius: 2px;
+    padding-left: 3px;
+    background-color:var(--lavergrey);
+    transition: all 0.3s ease-in;
+    opacity: 0.5; 
+}
+.orderBtn:hover{
+    cursor: pointer;
+    background-color: floralwhite;
+}

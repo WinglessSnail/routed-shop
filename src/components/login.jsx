@@ -1,27 +1,30 @@
-import "../../styles/login.css";
-import Header from "./header/header.jsx";
-import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "../styles/login.css";
+import Header from "./login/header";
 
 const Login = (props) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     fetch("http://localhost:3000/users.json")
-    .then((res) => res.json())
-    .then(
-      (users) => {
-        const user = users.find(
-          (u) => u.name === name && u.password === password
+      .then((res) => res.json())
+      .then(
+        (users) => {
+          const user = users.find(
+            (u) => u.name === name && u.password === password
           );
           if (user) {
             props.setUserName(name);
             navigate("/products")
           } else {
             alert("user does not exist");
+          }
+          {
+            // user ? navigate("/products") && props.setUserName(name) : alert(`user does not exist`);
           }
         },
         (error) => {
@@ -30,11 +33,11 @@ const Login = (props) => {
       );
   };
 
-  const handleNameChange = e => {
-    setName(e.target.value)
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
-  const handlePassChange = e => {
-    setPassword(e.target.value)
+  const handlePassChange = (e) => {
+    setPassword(e.target.value);
   };
 
   return (
