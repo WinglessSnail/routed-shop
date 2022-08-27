@@ -43,12 +43,12 @@
     display: flex;
     justify-content: space-between;
 }
-.card-body img{
+/* .card-body img{
     height: 42vh;
     padding:2rem 1rem;
     object-fit: cover;
 
-}
+} */
 .left{
     padding: 1rem;
 }
@@ -58,7 +58,7 @@
 .card-text{
     font-size: 1.2rem;
 }
-.discription{
+.description{
     padding:7rem 1.5rem;
     margin: 4rem -3rem 4rem 0;
     background-color: var(--thistle);

@@ -24,6 +24,12 @@
     border-radius: 20px;
     width: 270px;
 }
+.favorite i{
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+    z-index: 1;
+}
 .contentBx{
     bottom: 0;
     width: 100%;
@@ -39,7 +45,7 @@
 }
 .contentBx button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px 20px;
     background: #fff;
     border: none;
     border-bottom:1px solid var(--font);
@@ -53,7 +59,7 @@
     transform: translateY(50px);
     transition: .5s;
 }
-.pcard:hover .contentBx button{
+.pcard:hover .contentBx button {
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .3s;
@@ -72,4 +78,9 @@
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .4s;
+}
+.pcard:hover .favorite i {
+    opacity: 1;
+    transform: translateY(0px);
+    /* transition-delay: .4s; */
 }

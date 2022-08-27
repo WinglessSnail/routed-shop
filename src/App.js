@@ -10,15 +10,15 @@ import { Not } from "./components/not";
 
 function App() {
   const [userName, setUserName] = useState("");
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Nothing />}>
+        <Route path="/" >
           <Route index element={<Home />} />
           <Route path="login" element={<Login setUserName={setUserName} />} />
-          <Route path="products" element={<Products userName={userName} />}>
-            <Route path=":productId" element={<ItemCard/>} />
+          <Route path="products" >
+            <Route index element={<Products userName={userName} />} />
+            <Route path=":productId" element={<ItemCard />} />
           </Route>
           <Route path="notfound" element={<Not/>}/>
         </Route>
