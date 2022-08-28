@@ -2,7 +2,6 @@
     color: var(--font);
 }
 .card{
-    /* height: 80vh; */
     width: 75%;
     margin: 50px auto;
     background-color: rgb(255, 255, 255);
@@ -17,7 +16,7 @@
     border-bottom: 4px solid var(--deluge);
 }
 .backBtn{
-    width: 30%;
+    width: 35%;
     height: 3rem;
     font-size: 1.5rem;
     color: var(--deluge);
@@ -43,14 +42,10 @@
     display: flex;
     justify-content: space-between;
 }
-/* .card-body img{
-    height: 42vh;
-    padding:2rem 1rem;
+.card-body img{
+    height: 60vh;
+    padding:.5rem 0rem;
     object-fit: cover;
-
-} */
-.left{
-    padding: 1rem;
 }
 .right{
     padding: 1rem;

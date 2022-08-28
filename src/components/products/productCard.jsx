@@ -1,31 +1,39 @@
-import { useNavigate } from "react-router-dom";
+import { useReducer } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../../styles/productCard.css";
 
 export const ProductCard = (props) => {
   const { product } = props;
-
-  const handleClick = () => {
-    // navigate(":productId")
-    // props.setToggle(false)
-    // props.setId(product.id)
-    // console.log("product id set to :",product.id);
+  const [favestate, setFavestate] = useState(false);
+  
+  const handleFave = () => {
+    setFavestate(!favestate);
   };
 
+  
   return (
     <>
       <div className="pcard">
         <div className="imgBx">
-          <img src={product.img} onClick={handleClick} />
+          <Link to={`${product.id}`} key={product.id}>
+            <img src={product.img} />
+          </Link>
         </div>
         <div class="contentBx">
-        <div className="favorite">
-          <a href="#">
-            <i className="fa fa-heart-o" />
-          </a>
-        </div>
+          <div className="favorite">
+            {favestate === product.favestate ? (
+              <i className="fa fa-heart-o" onClick={handleFave} />
+            ) : (
+              <i className="fa fa-heart" onClick={handleFave} />
+            )}
+          </div>
           <h2>{product.title}</h2>
-          <button onClick={handleClick}>Buy Now</button>
-          <h5>{product.price}</h5>
+          <Link to={`${product.id}`} key={product.id}>
+            <button>Buy Now</button>
+          </Link>
+          <h5 className="price old">{`$${product.price}`}</h5>
+          <h5 className="price">{`$${product.price*.8}`}</h5>
         </div>
       </div>
     </>

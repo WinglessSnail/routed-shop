@@ -37,7 +37,7 @@ const ItemCard = () => {
         <div className="card-body">
           <div className="left">
             <h1 className="card-title">{product.title}</h1>
-            <img src={product.img} />
+            <img src={`../${product.img}`} />
           </div>
           <div className="right">
             <div className="card-text">
