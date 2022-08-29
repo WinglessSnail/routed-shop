@@ -32,8 +32,8 @@ export const ProductCard = (props) => {
           <Link to={`${product.id}`} key={product.id}>
             <button>Buy Now</button>
           </Link>
-          <h5 className="price old">{`$${product.price}`}</h5>
           <h5 className="price">{`$${product.price*.8}`}</h5>
+          <h5 className="price old">{`$${product.price}`}</h5>
         </div>
       </div>
     </>

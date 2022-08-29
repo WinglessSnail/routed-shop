@@ -1,0 +1,21 @@
+.filter-form{
+    padding:.5rem 1rem;
+}
+.filter-label{
+    font-size: 20px;
+}
+#filter{
+    width: 100px;
+    height: 30px;
+    font-size: 14px;    
+    border: none;
+    background-color:var(--thistle);
+}
+#filter option{
+    color: var(--font);
+    font-size: 14px;
+    border: wi;
+}
+#filter,.filter-label :focus{
+    outline: none;
+}
