@@ -1,19 +1,26 @@
-import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
+import debounce from "lodash.debounce";
+import "../styles/header.css";
 
 const Header = (props) => {
+  const {setSearch} = props
   const navigate = useNavigate();
-  const handleEnter = (e) => {
-    if (e.key === "Enter") {
-      props.setSearch(e.target.value);
-    }
-  };
+
+  const updateQuery = e => setSearch(e?.target?.value);
+
+  const debounceOnChange = debounce(updateQuery , 400)
+
   return (
     <>
       <header className="header">
         <span className="logo">Routed shop</span>
         <ul>
-          <li className="link" onClick={() => {navigate("/products") && props.setToggle(true)}}>
+          <li
+            className="link"
+            onClick={() => {
+              navigate("/products");
+            }}
+          >
             Products page
           </li>
         </ul>
@@ -28,9 +35,9 @@ const Header = (props) => {
           type="search"
           className="searchBar"
           placeholder="search here"
-          onKeyDown={handleEnter}
+          onChange={debounceOnChange}
         ></input>
-        <button className="searchBtn">Search</button>
+        {/* <button className="searchBtn">Search</button> */}
       </header>
     </>
   );

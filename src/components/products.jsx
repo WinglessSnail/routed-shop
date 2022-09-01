@@ -1,17 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { useEffect, useReducer, useState } from "react";
-import Header from "./header";
 import { ProductCard } from "./products/productCard";
+import { useRef } from "react";
+import Header from "./header";
 import Sale from "./products/sale";
 import "../styles/products.css";
-import { useRef } from "react";
 
 const Products = (props) => {
   const [name] = useState(props.userName);
   const [products, setproducts] = useState([]);
   const [search, setSearch] = useState("");
-  // const [product, dispatch] = useReducer(filter, []);
   const priceFilter = useRef();
+  // const [product, dispatch] = useReducer(filter, []);
 
   useEffect(() => {
     fetch("http://localhost:3000/products.json")
@@ -23,8 +23,8 @@ const Products = (props) => {
           } else {
             const searchResult = result.filter(
               (product) =>
-                product.title.includes(search) ||
-                product.description.includes(search)
+                product.title.toLowerCase().includes(search) ||
+                product.description.toLowerCase().includes(search)
             );
             setproducts(searchResult);
           }

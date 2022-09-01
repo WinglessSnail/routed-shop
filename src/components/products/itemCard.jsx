@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/itemCard.css";
 import { useNavigate, useParams } from 'react-router-dom';
+import Header from '../header';
+import Sale from './sale';
 
 const ItemCard = () => {
   const navigate = useNavigate();
@@ -26,6 +28,8 @@ const ItemCard = () => {
 
     return (
     <>
+      <Sale/>
+      <Header/>
       <div className="card">
         <div className="card-head">
           <button
