@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useReducer, useState } from "react";
 import { ProductCard } from "./products/productCard";
 import { useRef } from "react";
@@ -6,12 +6,53 @@ import Header from "./header";
 import Sale from "./products/sale";
 import "../styles/products.css";
 
+const ACTIONS = {
+  ASCENDING : "ascending",
+  DESCENDING : "descending",
+  SET : "set",
+  TOGGLE_FAVORITE : "toggleFavorite",
+  PRICING : "pricing"
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.ASCENDING:
+      return [...state.sort((a, b) => a.price - b.price)];
+    case ACTIONS.DESCENDING:
+      return [...state.sort((a, b) => b.price - a.price)];
+    case ACTIONS.SET:
+      return action.data;
+    case ACTIONS.TOGGLE_FAVORITE:
+      return state.map((p) => {
+        return p.id === action.productId
+          ? { ...p, favestate: !p.favestate }
+          : p;
+      });
+    case ACTIONS.PRICING:
+      if (state.off) {
+        return (
+          <>
+            <h5 className="price ">{`$${
+              state.price * (1 - state.off)
+            }`}</h5>
+            <h5 className="price old">{`$${state.price}`}</h5>
+          </>
+        );
+      } else {
+        return <h5 className="price">{`$${state.price}`}</h5>;
+      }
+    default:
+      return state;
+  }
+}
+
 const Products = (props) => {
   const [name] = useState(props.userName);
-  const [products, setproducts] = useState([]);
   const [search, setSearch] = useState("");
   const priceFilter = useRef();
-  // const [product, dispatch] = useReducer(filter, []);
+  const [products, dispatch] = useReducer(reducer, []);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/products.json")
@@ -19,14 +60,14 @@ const Products = (props) => {
       .then(
         (result) => {
           if (search === "") {
-            setproducts(result);
+            dispatch({ type: "set", data: result });
           } else {
             const searchResult = result.filter(
               (product) =>
                 product.title.toLowerCase().includes(search) ||
                 product.description.toLowerCase().includes(search)
             );
-            setproducts(searchResult);
+            dispatch({ type: "set", data: searchResult });
           }
         },
         (error) => {
@@ -35,24 +76,10 @@ const Products = (props) => {
       );
   }, [search]);
 
-  // const filter = (product, action) => {
-  //   switch (action.type) {
-  //     case "ascending":
-  //       return (
-  //         product.sort((a, b) => a.price - b.price) && setproducts(product)
-  //       );
-  //     case "descending":
-  //       return (
-  //         product.sort((a, b) => b.price - a.price) && setproducts(product)
-  //       );
-  //     default:
-  //       return product;
-  //   }
-  // };
-
   const handleClick = () => {
-    console.log(priceFilter.current.value)
-  }
+    console.log(priceFilter.current.value);
+    dispatch({ type: priceFilter.current.value });
+  };
 
   return (
     <>
@@ -74,7 +101,7 @@ const Products = (props) => {
       </form>
       <div className="grid">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} dispatch={dispatch} />
         ))}
       </div>
 

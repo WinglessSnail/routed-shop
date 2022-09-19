@@ -10,7 +10,7 @@
     width: 320px;
     height: 530px;
     background:var(--deluge);
-    border-radius: 20px;
+    border-radius: 5px;
     overflow: hidden;
 }
 .imgBx {
@@ -21,8 +21,9 @@
     margin-top: 10px;
 }
 .imgBx img {
-    border-radius: 20px;
-    width: 270px;
+    border-radius: 5px;
+    width: 280px;
+    height: 340px;
 }
 .favorite i{
     opacity: 0;

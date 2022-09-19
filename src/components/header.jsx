@@ -37,7 +37,6 @@ const Header = (props) => {
           placeholder="search here"
           onChange={debounceOnChange}
         ></input>
-        {/* <button className="searchBtn">Search</button> */}
       </header>
     </>
   );

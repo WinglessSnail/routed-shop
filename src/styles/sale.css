@@ -12,6 +12,8 @@
     border: none;
     background: transparent;
     font-size: 30px;
+}
+.sale-btn i {
     transition: .3s;
 }
 .sale-text{
@@ -19,7 +21,7 @@
  font-size: 21px;
 }
 
-.sale-btn:hover{
+.sale-btn i:hover{
     color: rgba(240, 248, 255, 0.607);
 }
 .close{

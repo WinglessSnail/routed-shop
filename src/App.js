@@ -19,7 +19,7 @@ function App() {
             <Route index element={<Products userName={userName} />} />
             <Route path=":productId" element={<ItemCard />} />
           </Route>
-          <Route path="notfound" element={<Not/>}/>
+          <Route path="nopage" element={<Not/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
